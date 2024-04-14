@@ -5,7 +5,7 @@
 ```
 1. Create an object to store the letters with corresponding values. 
 
-2. Create a function to get each letter from a given word
+2. Create a loop to get each letter from a given word
 
 3. Create a function to call the object of letters and return the values for all letters and store them in an array
 
