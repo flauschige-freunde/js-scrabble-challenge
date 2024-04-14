@@ -56,6 +56,5 @@ function scrabble(word) {
   return sum
   // return getWordValue(word)
 }
-console.log(scrabble('deez'))
 
 module.exports = scrabble
