@@ -1,4 +1,10 @@
 function scrabble(word) {
+  if (word === null) {
+    return 0
+  } else if (word === ' \t\n') {
+    return 0
+  }
+
   const letterValuesObj = {
     A: 1,
     E: 1,
