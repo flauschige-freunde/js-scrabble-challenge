@@ -37,13 +37,38 @@ function scrabble(word) {
     Q: 10,
     Z: 10
   }
+
+  let multiplier = 1
+  const changeMultiplier = (bracketType) => {
+    let factor = 1
+    switch (bracketType) {
+      case '[':
+        factor = 3
+        break
+      case ']':
+        factor = 1 / 3
+        break
+      case '{':
+        factor = 2
+        break
+      case '}':
+        factor = 1 / 2
+        break
+    }
+    multiplier *= factor
+  }
+
   const getWordValue = (word) => {
     const letterValueArray = []
+    const multiplierTriggerArray = ['[', ']', '{', '}']
 
     for (let index = 0; index < word.length; index++) {
       const currentLetter = word[index].toUpperCase()
+
       if (letterValuesObj[currentLetter]) {
-        letterValueArray.push(letterValuesObj[currentLetter])
+        letterValueArray.push(letterValuesObj[currentLetter] * multiplier)
+      } else if (multiplierTriggerArray.includes(currentLetter)) {
+        changeMultiplier(currentLetter)
       }
     }
     return letterValueArray
@@ -60,7 +85,6 @@ function scrabble(word) {
   }
   const sum = sumWordValue()
   return sum
-  // return getWordValue(word)
 }
 
 module.exports = scrabble
