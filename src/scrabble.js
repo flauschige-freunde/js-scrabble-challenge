@@ -1,5 +1,5 @@
-function scrabble() {
-  const letterValues = {
+function scrabble(word) {
+  const letterValuesObj = {
     A: 1,
     E: 1,
     I: 1,
@@ -33,8 +33,17 @@ function scrabble() {
     Q: 10,
     Z: 10
   }
+  const getWordValue = (word) => {
+    const letterValueArray = []
 
-
+    for (let index = 0; index < word.length; index++) {
+      const currentLetter = word[index].toUpperCase()
+      letterValueArray.push(letterValuesObj[currentLetter])
+    }
+    return letterValueArray
+  }
+  return getWordValue(word)
 }
+console.log(scrabble('deez'))
 
 module.exports = scrabble
