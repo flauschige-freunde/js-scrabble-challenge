@@ -1,7 +1,5 @@
 function scrabble(word) {
-  if (word === null) {
-    return 0
-  } else if (word === ' \t\n') {
+  if (!word === true) {
     return 0
   }
 
@@ -44,7 +42,9 @@ function scrabble(word) {
 
     for (let index = 0; index < word.length; index++) {
       const currentLetter = word[index].toUpperCase()
-      letterValueArray.push(letterValuesObj[currentLetter])
+      if (letterValuesObj[currentLetter]) {
+        letterValueArray.push(letterValuesObj[currentLetter])
+      }
     }
     return letterValueArray
   }
