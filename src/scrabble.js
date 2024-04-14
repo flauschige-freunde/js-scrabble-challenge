@@ -79,14 +79,13 @@ function scrabble(word) {
   if (multiplier !== 1 || invalidCharacter === true) return 0
 
   const sumWordValue = () => {
-    let totalSum = 0
+    let sum = 0
     letterValueArray.forEach((currentValue) => {
-      totalSum += currentValue
+      sum += currentValue
     })
-    return totalSum
+    return sum
   }
   const sum = sumWordValue()
-  console.log(sum, multiplier)
   return sum
 }
 
