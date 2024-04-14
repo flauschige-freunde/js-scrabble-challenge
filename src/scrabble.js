@@ -42,7 +42,19 @@ function scrabble(word) {
     }
     return letterValueArray
   }
-  return getWordValue(word)
+
+  const letterValueArray = getWordValue(word)
+
+  const sumWordValue = () => {
+    let totalSum = 0
+    letterValueArray.forEach((currentValue) => {
+      totalSum += currentValue
+    })
+    return totalSum
+  }
+  const sum = sumWordValue()
+  return sum
+  // return getWordValue(word)
 }
 console.log(scrabble('deez'))
 
