@@ -37,8 +37,9 @@ function scrabble(word) {
     Q: 10,
     Z: 10
   }
-
   let multiplier = 1
+  let invalidCharacter = false
+
   const changeMultiplier = (bracketType) => {
     let factor = 1
     switch (bracketType) {
@@ -69,12 +70,13 @@ function scrabble(word) {
         letterValueArray.push(letterValuesObj[currentLetter] * multiplier)
       } else if (multiplierTriggerArray.includes(currentLetter)) {
         changeMultiplier(currentLetter)
-      }
+      } else invalidCharacter = true
     }
     return letterValueArray
   }
 
   const letterValueArray = getWordValue(word)
+  if (multiplier !== 1 || invalidCharacter === true) return 0
 
   const sumWordValue = () => {
     let totalSum = 0
@@ -84,6 +86,7 @@ function scrabble(word) {
     return totalSum
   }
   const sum = sumWordValue()
+  console.log(sum, multiplier)
   return sum
 }
 
